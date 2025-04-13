@@ -10,9 +10,15 @@ app.engine('hbs', hbs.engine({
 app.set('view engine', 'hbs');
 app.set('views', './views');
 
-app.get("/", (req, res) => {
-    res.render("home");
-});
+//router
+const homeRouter = require("./routes/home");
+
+app.use("/", homeRouter)
+
+//404
+app.use((req, res, next) => {
+    res.status(404).send("404")
+})
 
 app.listen(3000, () => {
     console.log("http://localhost:3000")
