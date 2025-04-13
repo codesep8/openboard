@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev": "nodemon server"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
