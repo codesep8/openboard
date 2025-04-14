@@ -1,7 +1,17 @@
 const express = require("express");
 const hbs = require("express-handlebars");
+const session = require("express-session");
 
 const app = express();
+
+//session
+app.use(session({
+    secret: "yifiyifihguhuh"
+}))
+app.use((req, res, next) => {
+    req.locals.session = req.session
+    next()
+})
 
 //template engine
 app.engine('hbs', hbs.engine({
@@ -16,7 +26,7 @@ const homeRouter = require("./routes/home");
 app.use("/", homeRouter)
 
 //404
-app.use((req, res, next) => {
+app.use((req, res) => {
     res.status(404).send("404")
 })
 
