@@ -15,8 +15,8 @@ app.use(session({
     secret: "yifiyifihguhuh"
 }));
 app.use((req, res, next) => {
-    req.locals.session = req.session;
-    req.locals.config = config;
+    //res.locals.session = req.session;
+    res.locals.config = config;
     next();
 })
 
