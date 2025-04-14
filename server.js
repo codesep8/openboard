@@ -22,8 +22,10 @@ app.set('views', './views');
 
 //router
 const homeRouter = require("./routes/home");
+const authRouter = require("./routes/auth");
 
-app.use("/", homeRouter)
+app.use("/", homeRouter);
+app.use("/auth", authRouter);
 
 //404
 app.use((req, res) => {
